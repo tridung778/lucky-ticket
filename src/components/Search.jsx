@@ -1,7 +1,7 @@
+import PropTypes from "prop-types"; // Thêm PropTypes để kiểm tra kiểu dữ liệu
 import { Autocomplete, TextField } from "@mui/material";
-import { mangDai } from "../utils/mangDai";
 
-const Search = ({ setValue, value, setInputValue, inputValue }) => {
+const Search = ({ setValue, value, setInputValue, inputValue, options }) => {
   return (
     <div>
       <Autocomplete
@@ -15,11 +15,21 @@ const Search = ({ setValue, value, setInputValue, inputValue }) => {
         }}
         id="controllable-states-demo"
         options={options}
+        getOptionLabel={(option) => option.name} // Hiển thị tên của option
         sx={{ width: 300 }}
-        renderInput={(params) => <TextField {...params} label="Controllable" />}
+        renderInput={(params) => <TextField {...params} label="Chọn nhà đài" />}
       />
     </div>
   );
+};
+
+// Kiểm tra kiểu dữ liệu của props
+Search.propTypes = {
+  setValue: PropTypes.func.isRequired,
+  value: PropTypes.object,
+  setInputValue: PropTypes.func.isRequired,
+  inputValue: PropTypes.string.isRequired,
+  options: PropTypes.array.isRequired,
 };
 
 export default Search;
