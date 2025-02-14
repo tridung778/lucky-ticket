@@ -81,23 +81,32 @@ const Home = () => {
   return (
     <Box
       sx={{
+        height: "80vh", // Full height on small screens, 80vh on medium and larger screens
         padding: 2,
         display: "flex",
         alignItems: "center",
+        justifyContent: "center",
         gap: 2,
         flexDirection: "column",
+        my: "auto",
       }}
     >
-      <Typography variant="h3" sx={{ fontFamily: '"Press Start 2P", cursive' }}>
+      <Typography
+        variant="h3"
+        sx={{ fontFamily: '"Press Start 2P", cursive', textAlign: "center" }}
+      >
         Tra vé nhanh 🚀
       </Typography>
       {/* Truyền props vào component Search */}
       <Box
         sx={{
           display: "flex",
+          flexDirection: { xs: "column", md: "row" }, // Column on small screens, row on medium and larger screens
           gap: 2,
           alignItems: "center",
           marginTop: 2,
+          width: "100%", // Full width
+          maxWidth: "600px", // Max width for larger screens
         }}
       >
         <Search
@@ -106,15 +115,20 @@ const Home = () => {
           inputValue={inputValue}
           setInputValue={setInputValue}
           options={mangDai}
+          sx={{ width: "100%" }} // Full width for Search component
         />
         <TextField
           id="outlined-basic"
           label="Nhập số muốn tìm"
           variant="outlined"
           onChange={(e) => setNumber(e.target.value)}
-          sx={{ flex: 1 }}
+          sx={{ flex: 1, width: "100%" }} // Full width for TextField
         />
-        <Button variant="contained" onClick={handleSearch}>
+        <Button
+          variant="contained"
+          onClick={handleSearch}
+          sx={{ width: { sm: "auto", xs: "100%" } }}
+        >
           Tìm kiếm
         </Button>
       </Box>
