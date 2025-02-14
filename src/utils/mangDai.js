@@ -4,7 +4,7 @@ export const mangDai = [
   { name: "VIP M.Bắc 75 Giây", code: "vnmbmg" },
   { name: "VIP M.Nam 45 Giây", code: "vnmnmg" },
   { name: "VIP M.Trung 75 Giây", code: "vnmtmg" },
-  { name: "Hà Nội", code: "hano" },
+  // { name: "Hà Nội", code: "hano" },
   { name: "Bạc Liêu", code: "bali" },
   { name: "Vietlott 6/45", code: "platmg1p" },
   { name: "Siêu Tốc 45 Giây", code: "st45g" },
