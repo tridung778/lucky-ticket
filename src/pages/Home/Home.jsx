@@ -132,6 +132,12 @@ const Home = () => {
           Tìm kiếm
         </Button>
       </Box>
+      <Typography>
+        Copyright ©{" "}
+        <span style={{ color: "#5eb7ff" }}>
+          <a href="https://www.facebook.com/minhtenladung">tridung778</a>
+        </span>
+      </Typography>
       {/* Hiển thị dữ liệu từ API */}
       {/* {data && (
         <div>
