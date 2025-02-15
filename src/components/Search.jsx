@@ -14,9 +14,9 @@ const Search = ({ setValue, value, setInputValue, inputValue, options }) => {
           setInputValue(newInputValue);
         }}
         id="controllable-states-demo"
+        sx={{ width: 300 }}
         options={options}
         getOptionLabel={(option) => option.name} // Hiển thị tên của option
-        sx={{ width: 300 }}
         renderInput={(params) => <TextField {...params} label="Chọn nhà đài" />}
       />
     </div>

@@ -15,13 +15,14 @@ export const findWinningPrizeSouthSide = (number, lotteryResults) => {
     }
   };
 
-  checkPrize("G.7", 2); // Giải 8
-  checkPrize("G.6", 3); // Giải 7
-  checkPrize("G.5", 4); // Giải 6
-  checkPrize("G.4", 4); // Giải 5
-  checkPrize("G.3", 5); // Giải 4
-  checkPrize("G.2", 5); // Giải 3
-  checkPrize("G.1", 5); // Giải nhì
+  checkPrize("G.8", 2); // Giải 8
+  checkPrize("G.7", 3); // Giải 7
+  checkPrize("G.6", 4); // Giải 6
+  checkPrize("G.5", 4); // Giải 5
+  checkPrize("G.4", 5); // Giải 4
+  checkPrize("G.3", 5); // Giải 3
+  checkPrize("G.2", 5); // Giải nhì
+  checkPrize("G.1", 5); // Giải nhất
 
   if (specialPrize === number) {
     results.push("G.DB"); // Giải đặc biệt

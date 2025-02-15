@@ -3,12 +3,15 @@ import { getData } from "../../utils/fecht-api";
 import Search from "../../components/Search";
 import { mangDai } from "../../utils/mangDai";
 import { Box, Button, TextField, Typography } from "@mui/material";
-import { convertLotteryResults } from "../../utils/convertLotteryResults";
 import {
   findWinningPrizeNorthSide,
   findWinningPrizeSouthSide,
 } from "../../utils/findWinningPrize";
 import Swal from "sweetalert2";
+import {
+  convertLotteryResultsNorthSide,
+  convertLotteryResultsSouthSide,
+} from "./../../utils/convertLotteryResults";
 
 const Home = () => {
   const [data, setData] = useState(null);
@@ -50,12 +53,14 @@ const Home = () => {
 
     if (["mb", "mn", "mt"].includes(data.t.navCate)) {
       const results = data.t.issueList.flatMap((item) => {
-        const lotteryResults = convertLotteryResults(item.detail);
+        let lotteryResults = [];
         const prizes = [];
         if (data.t.navCate === "mb") {
+          lotteryResults = convertLotteryResultsNorthSide(item.detail);
           prizes.push(...findWinningPrizeNorthSide(number, lotteryResults));
         }
         if (data.t.navCate === "mn" || data.t.navCate === "mt") {
+          lotteryResults = convertLotteryResultsSouthSide(item.detail);
           prizes.push(...findWinningPrizeSouthSide(number, lotteryResults));
         }
         return prizes.length > 0
@@ -93,7 +98,11 @@ const Home = () => {
     >
       <Typography
         variant="h3"
-        sx={{ fontFamily: '"Press Start 2P", cursive', textAlign: "center" }}
+        sx={{
+          fontFamily: '"Press Start 2P", cursive',
+          textAlign: "center",
+          fontSize: { xs: "2.5rem", md: "3.5rem" },
+        }}
       >
         Tra vé nhanh 🚀
       </Typography>
@@ -114,20 +123,20 @@ const Home = () => {
           setValue={setValue}
           inputValue={inputValue}
           setInputValue={setInputValue}
-          options={mangDai}
-          sx={{ width: "100%" }} // Full width for Search component
+          options={mangDai} // Full width for Search component
         />
         <TextField
           id="outlined-basic"
           label="Nhập số muốn tìm"
           variant="outlined"
           onChange={(e) => setNumber(e.target.value)}
-          sx={{ flex: 1, width: "100%" }} // Full width for TextField
+          sx={{ flex: 1, width: 300 }} // Full width for TextField
         />
         <Button
           variant="contained"
+          color="success"
           onClick={handleSearch}
-          sx={{ width: { sm: "auto", xs: "100%" } }}
+          sx={{ width: { sm: "auto", xs: 300 }, p: 1.5 }}
         >
           Tìm kiếm
         </Button>
