@@ -106,6 +106,9 @@ const Home = () => {
       >
         Tra vé nhanh 🚀
       </Typography>
+      <Typography>
+        Một trang web giúp hỗ trợ tra cứu vé số nhanh hơn!
+      </Typography>
       {/* Truyền props vào component Search */}
       <Box
         sx={{
